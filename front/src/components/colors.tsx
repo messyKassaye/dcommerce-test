@@ -9,7 +9,7 @@ export const Colors = ()=>{
     return (
         <div className='flex flex-col'>
             {data?.data?.map((color:any)=>(
-                <Color color={color}/>
+                <Color key={color?._id} color={color}/>
             ))}
         </div>
     )

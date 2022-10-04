@@ -4,6 +4,7 @@ import { ModificationNote } from "../common/common.model";
 export interface ICat{
     _id?:String,
     name:String,
+    image:String,
     price:Number,
     description:String
     color:IColor,

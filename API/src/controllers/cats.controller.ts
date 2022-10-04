@@ -9,6 +9,7 @@ export class CatController{
         const cat_params:ICat = {
             name:req.body.name,
             price:req.body.price,
+            image:req.body.image,
             description:req.body.description,
             color:req.body.color,
             modification_notes: [{
@@ -36,7 +37,7 @@ export class CatController{
             if(err){
                 mongoError(err,res)
             }else{
-                successResponse('Filter result',result,res)
+                res.status(200).json(result)
             }
         });
     }

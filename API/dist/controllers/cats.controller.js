@@ -11,6 +11,7 @@ class CatController {
         const cat_params = {
             name: req.body.name,
             price: req.body.price,
+            image: req.body.image,
             description: req.body.description,
             color: req.body.color,
             modification_notes: [{
@@ -38,7 +39,7 @@ class CatController {
                 (0, modules_common_service_1.mongoError)(err, res);
             }
             else {
-                (0, modules_common_service_1.successResponse)('Filter result', result, res);
+                res.status(200).json(result);
             }
         });
     }

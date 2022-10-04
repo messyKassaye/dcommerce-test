@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 const catSchema = new Schema({
     name: String,
     description: String,
+    image: String,
     color: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Colors'

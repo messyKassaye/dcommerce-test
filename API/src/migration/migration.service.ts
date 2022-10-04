@@ -25,7 +25,7 @@ export class MigrationService {
         
         Cats.find().then(cats=>{
             if(cats.length<=0){
-                catsData.forEach(cat=>{
+                catsData.forEach(cat=>{                    
                     const randomColor = colors[Math.floor(Math.random()*colors.length)]
                     const newCat = new Cats({
                         ...cat,color:randomColor
