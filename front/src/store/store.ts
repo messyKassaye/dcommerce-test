@@ -1,7 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import filterSlice from './features/filterSlice';
+import { filterCoreApi } from './services/filterCoreApi';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    [filterCoreApi.reducerPath]:filterCoreApi.reducer,
+    filter:filterSlice
+  },
+  middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(filterCoreApi.middleware)
 });
 
 export type AppDispatch = typeof store.dispatch;

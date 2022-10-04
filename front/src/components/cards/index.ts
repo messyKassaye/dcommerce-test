@@ -1,4 +1,4 @@
 import { PriceRange } from "./price-range";
-import { Color } from "./colors-card";
+import { Color } from "./color";
 
 export {PriceRange,Color}

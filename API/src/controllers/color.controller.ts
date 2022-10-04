@@ -1,11 +1,24 @@
 import ColorService from "../modules/color/color.service";
 import { Request,Response } from "express";
 import { IColor } from "../modules/color/color.interface";
-import { mongoError, successResponse,insufficientParameters } from "../modules/common/modules.common.service";
+import { mongoError, successResponse } from "../modules/common/modules.common.service";
 
 export class ColorController{
 
     private colorService:ColorService = new ColorService()
+
+    public get_all_colors(req:Request,res:Response){
+        this.colorService.getAllColors((err:any,data:IColor)=>{
+            if(err){
+                mongoError(err,res)
+            }else{
+                res.status(200).json({
+                    message:'Color is fetched',
+                    data:data
+                })
+            }
+        });
+    }
 
     public create_color(req:Request,res:Response){
         const color_params:IColor = {

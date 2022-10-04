@@ -26,4 +26,19 @@ export class CatController{
             }
         })
     }
+
+    public filter_cats(req:Request,res:Response){
+        const query_params = {
+            price:req.body.price,
+            color:req.body.color
+        }
+        this.catService.filterCats(query_params,(err:any,result:any)=>{
+            if(err){
+                mongoError(err,res)
+            }else{
+                successResponse('Filter result',result,res)
+            }
+        });
+    }
+    
 }

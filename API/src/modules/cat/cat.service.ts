@@ -6,4 +6,9 @@ export default class CatService {
         const cat = new Cats(cat_params);
         cat.save(callback)
     }
+
+    public filterCats(query_params:any,callback:any){
+        const query = {price:{$lte:query_params.price},color:query_params.color}
+        Cats.find(query,callback)
+    }
 }

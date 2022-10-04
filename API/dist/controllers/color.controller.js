@@ -7,6 +7,19 @@ class ColorController {
     constructor() {
         this.colorService = new color_service_1.default();
     }
+    get_all_colors(req, res) {
+        this.colorService.getAllColors((err, data) => {
+            if (err) {
+                (0, modules_common_service_1.mongoError)(err, res);
+            }
+            else {
+                res.status(200).json({
+                    message: 'Color is fetched',
+                    data: data
+                });
+            }
+        });
+    }
     create_color(req, res) {
         const color_params = {
             name: req.body.name,

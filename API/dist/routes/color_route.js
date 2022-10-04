@@ -7,6 +7,9 @@ class ColorRoutes {
         this.color_controller = new color_controller_1.ColorController();
     }
     route(app) {
+        app.get('/api/colors', (req, res) => {
+            this.color_controller.get_all_colors(req, res);
+        });
         app.post('/api/colors', (req, res) => {
             this.color_controller.create_color(req, res);
         });

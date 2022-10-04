@@ -1,4 +1,5 @@
 import { FilterHeader } from "./filter-header";
 import { SideBar } from "./sidebar";
+import { Colors } from "./colors";
 
-export {FilterHeader,SideBar}
+export {FilterHeader,SideBar,Colors}

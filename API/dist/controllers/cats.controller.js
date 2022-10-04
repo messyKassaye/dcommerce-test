@@ -28,5 +28,19 @@ class CatController {
             }
         });
     }
+    filter_cats(req, res) {
+        const query_params = {
+            price: req.body.price,
+            color: req.body.color
+        };
+        this.catService.filterCats(query_params, (err, result) => {
+            if (err) {
+                (0, modules_common_service_1.mongoError)(err, res);
+            }
+            else {
+                (0, modules_common_service_1.successResponse)('Filter result', result, res);
+            }
+        });
+    }
 }
 exports.CatController = CatController;
